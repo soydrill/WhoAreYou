@@ -3,10 +3,39 @@
 
 #include "pch.h"
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	string name;
+	cout << "Who are you? ";
+	cin >> name;
+
+	string greeting = "Hello, " + name;
+	if (name == "Saahil" || name == "saahil")
+	{
+		greeting += ", I know you!";
+	}
+
+	cout << greeting << endl;
+
+	int l = greeting.length(); // gets length of greeting, whether it ends in ", I know you!" or not.
+	cout << "\"" + greeting + "\" is " << l << " characters long." << endl; // the backslash is an escape character indicating print a double quote
+	auto space = greeting.find(' '); // finds the first space and returns a pointer to that space
+	cout << space << endl;
+	string beginning = greeting.substr(space + 1, name.length()); // goes to pointer "space+1" and returns length of string following it
+	cout << beginning << endl;
+
+	if (beginning == name)
+	{
+		cout << "expected result." << endl;
+	}
+
+	
+	return 0;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
